@@ -1,54 +1,24 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const helmet = require('helmet');
-const morgan = require('morgan');
+import 'dotenv/config';
+import cors from 'cors';
+import express from 'express';
+import bodyParser from 'body-parser';
 
-const { startDatabase } = require('./database/mongo');
-const { AdsCollection } = require('./database/collections/ads');
+import RoomsRouter from './rooms/rooms.router';
 
-const PORT = 3000;
+import db from './mongodb/mongo';
 
 const app = express();
 
-const ads = [
-  {
-    title: 'hello world'
-  }
-];
-
-app.use(helmet());
-app.use(bodyParser.json());
 app.use(cors());
-app.use(morgan('combined'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-app.get('/', async (req, res) => {
-  res.send(await AdsCollection.getAds());
-});
+const router = express.Router();
+router.use('/rooms', RoomsRouter);
+app.use('/api', router);
 
-app.post('/', async (req, res) => {
-  const newAd = req.body;
-  await AdsCollection.insertAd(newAd);
-  res.send({ message: 'New ad inserted.' });
-});
-
-// endpoint to delete an ad
-app.delete('/:id', async (req, res) => {
-  await AdsCollection.deleteAd(req.params.id);
-  res.send({ message: 'Ad removed.' });
-});
-
-// endpoint to update an ad
-app.put('/:id', async (req, res) => {
-  const updatedAd = req.body;
-  await AdsCollection.updateAd(req.params.id, updatedAd);
-  res.send({ message: 'Ad updated.' });
-});
-
-startDatabase().then(async () => {
-  await AdsCollection.insertAd({ title: 'Hello, now from the in-memory database!' });
-
-  app.listen(PORT, () => {
-    console.log(`App listening on Port ${PORT}`);
-  });
+db.connect().then(async () => {
+  app.listen(process.env.PORT, () =>
+    console.log(`Example app listening on port ${process.env.PORT}!`)
+  );
 });
