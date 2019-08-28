@@ -3,7 +3,7 @@ import cors from 'cors';
 import express from 'express';
 import bodyParser from 'body-parser';
 
-import RoomsRouter from './rooms/rooms.router';
+import RoomsRouter from './rooms/room.router';
 
 import db from './mongodb/mongo';
 import Room from './mongodb/room.model';
