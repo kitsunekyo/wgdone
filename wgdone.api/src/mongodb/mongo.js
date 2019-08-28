@@ -1,8 +1,11 @@
 import mongoose from 'mongoose';
+import { MongoMemoryServer } from 'mongodb-memory-server';
 
 const db = {
-  connect() {
-    return mongoose.connect(process.env.MONGO);
+  async connect() {
+    const mongod = new MongoMemoryServer();
+    const connectionString = await mongod.getConnectionString();
+    return mongoose.connect(connectionString);
   }
 };
 

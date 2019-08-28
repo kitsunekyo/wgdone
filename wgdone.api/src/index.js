@@ -6,6 +6,7 @@ import bodyParser from 'body-parser';
 import RoomsRouter from './rooms/rooms.router';
 
 import db from './mongodb/mongo';
+import Room from './mongodb/room.model';
 
 const app = express();
 
@@ -18,7 +19,14 @@ router.use('/rooms', RoomsRouter);
 app.use('/api', router);
 
 db.connect().then(async () => {
+  MOCK();
   app.listen(process.env.PORT, () =>
     console.log(`Example app listening on port ${process.env.PORT}!`)
   );
 });
+
+async function MOCK() {
+  const room = await new Room({ name: 'Wohnzimmer' });
+  const task = await room.tasks.push({ name: 'Staubsaugen' });
+  await room.save();
+}

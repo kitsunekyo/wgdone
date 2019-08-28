@@ -1,7 +1,9 @@
 import mongoose from 'mongoose';
+import { taskSchema } from './task.model';
 
 const roomSchema = new mongoose.Schema({
-  name: String
+  name: String,
+  tasks: [taskSchema]
 });
 
 const Room = mongoose.model('rooms', roomSchema);

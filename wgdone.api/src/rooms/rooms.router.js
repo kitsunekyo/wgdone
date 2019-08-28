@@ -21,10 +21,14 @@ RoomRouter.delete('/:roomId', (req, res) => {
   });
 });
 
-RoomRouter.post('/:roomId/task', (req, res) => {
-  RoomController.addTask(req.params.roomId, req.body).then(task => {
-    res.json(task);
-  });
+RoomRouter.get('/:roomId/tasks', async (req, res) => {
+  const tasks = await RoomController.getTasks(req.params.roomId);
+  res.json(tasks);
+});
+
+RoomRouter.post('/:roomId/tasks', async (req, res) => {
+  const task = await RoomController.addTask(req.params.roomId, req.body);
+  res.json(task);
 });
 
 export default RoomRouter;

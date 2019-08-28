@@ -24,10 +24,23 @@ const RoomController = {
     });
   },
 
+  getTasks(roomId) {
+    return new Promise(async (resolve, reject) => {
+      const query = Room.findById(roomId);
+      if (room) {
+        resolve(room.tasks.select('name'));
+      } else {
+        reject();
+      }
+    });
+  },
+
   addTask(roomId, taskPayload) {
-    return new Promise((resolve, reject) => {
-      const task = new Task({ ...taskPayload, room: roomId });
-      task.save((e, task) => {
+    return new Promise(async (resolve, reject) => {
+      const room = await Room.findById(roomId);
+      const task = new Task(taskPayload);
+      room.tasks.push(task);
+      room.save(e => {
         if (e) reject(e);
         resolve(task);
       });
