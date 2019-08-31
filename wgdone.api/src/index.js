@@ -3,7 +3,7 @@ import cors from 'cors';
 import express from 'express';
 import bodyParser from 'body-parser';
 
-import RoomsRouter from './rooms/room.router';
+import RoomRouter from './room/room.router';
 
 import db from './mongodb/mongo';
 import Room from './mongodb/room.model';
@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 const router = express.Router();
-router.use('/rooms', RoomsRouter);
+router.use('/rooms', RoomRouter);
 app.use('/api', router);
 
 db.connect().then(async () => {
