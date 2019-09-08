@@ -9,7 +9,7 @@ namespace wgdone.webapi.Domain.Services
 {
   public interface IChoreService
   {
-    Task<IEnumerable<Chore>> ListAsync(Guid roomId);
+    Task<IEnumerable<Chore>> ListAsync();
     Task<ChoreResponse> SaveAsync(Chore chore);
     Task<ChoreResponse> UpdateAsync(Guid id, Chore chore);
     Task<ChoreResponse> DeleteAsync(Guid id);

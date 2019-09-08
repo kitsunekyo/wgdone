@@ -25,6 +25,31 @@ namespace wgdone.webapi.Controllers
       _mapper = mapper;
     }
 
+    [HttpGet]
+    public async Task<IEnumerable<ChoreResource>> GetAllAsync()
+    {
+      var chores = await _choreService.ListAsync();
+      var resources = _mapper.Map<IEnumerable<Chore>, IEnumerable<ChoreResource>>(chores);
+
+      return resources;
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> PostAsync([FromBody] SaveChoreResource resource)
+    {
+      if (!ModelState.IsValid)
+        return BadRequest(ModelState.GetErrorMessages());
+
+      var chores = _mapper.Map<SaveChoreResource, Chore>(resource);
+      var result = await _choreService.SaveAsync(chores);
+
+      if (!result.Success)
+        return BadRequest(result.Message);
+
+      var choresResource = _mapper.Map<Chore, ChoreResource>(result.Chore);
+      return Ok(choresResource);
+    }
+
     [HttpPut("{id}")]
     public async Task<IActionResult> PutAsync(Guid id, [FromBody] SaveChoreResource resource)
     {

@@ -11,7 +11,7 @@ namespace wgdone.webapi.Domain.Models
     public Guid ChoreId { get; set; }
     public Chore Chore { get; set; }
 
-    public Guid RoomId { get; set; }
+    public Guid? RoomId { get; set; }
     public Room Room { get; set; }
 
   }

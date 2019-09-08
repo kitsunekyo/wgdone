@@ -16,6 +16,7 @@ namespace wgdone.webapi.Persistence.Repositories
 
     public async Task AddAsync(Activity activity)
     {
+      activity.Timestamp = DateTime.Now;
       await _context.Activities.AddAsync(activity);
     }
 

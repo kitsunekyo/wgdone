@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Code\\wgdone\\wgdone.webapi\\wgdone.webapi.csproj": {}
+    "D:\\Code\\github\\wgdone\\wgdone.webapi\\wgdone.webapi.csproj": {}
   },
   "projects": {
-    "E:\\Code\\wgdone\\wgdone.webapi\\wgdone.webapi.csproj": {
+    "D:\\Code\\github\\wgdone\\wgdone.webapi\\wgdone.webapi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Code\\wgdone\\wgdone.webapi\\wgdone.webapi.csproj",
+        "projectUniqueName": "D:\\Code\\github\\wgdone\\wgdone.webapi\\wgdone.webapi.csproj",
         "projectName": "wgdone.webapi",
-        "projectPath": "E:\\Code\\wgdone\\wgdone.webapi\\wgdone.webapi.csproj",
-        "packagesPath": "C:\\Users\\aspieslechner\\.nuget\\packages\\",
-        "outputPath": "E:\\Code\\wgdone\\wgdone.webapi\\obj\\",
+        "projectPath": "D:\\Code\\github\\wgdone\\wgdone.webapi\\wgdone.webapi.csproj",
+        "packagesPath": "C:\\Users\\alexander.spieslechn\\.nuget\\packages\\",
+        "outputPath": "D:\\Code\\github\\wgdone\\wgdone.webapi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\aspieslechner\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\bak.Microsoft.VisualStudio.Offline.config",
+          "C:\\Users\\alexander.spieslechn\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

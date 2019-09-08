@@ -25,9 +25,11 @@ namespace wgdone.webapi.Persistence.Repositories
       return await _context.Chores.FindAsync(id);
     }
 
-    public async Task<IEnumerable<Chore>> ListAsync(Guid roomId)
+
+
+    public async Task<IEnumerable<Chore>> ListAsync()
     {
-      return await _context.Chores.Where(b => b.RoomId == roomId).ToListAsync();
+      return await _context.Chores.ToListAsync();
     }
 
     public void Remove(Chore chore)

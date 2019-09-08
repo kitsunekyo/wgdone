@@ -8,10 +8,11 @@ namespace wgdone.webapi.Resources
 {
   public class SaveActivityResource
   {
-    [Required]
-    public Guid RoomId { get; set; }
+    public Guid? RoomId { get; set; }
+
     [Required]
     public Guid ChoreId { get; set; }
+
     [Required]
     public string User { get; set; }
   }

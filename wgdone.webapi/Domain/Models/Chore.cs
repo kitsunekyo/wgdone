@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace wgdone.webapi.Domain.Models
 {
@@ -7,7 +8,6 @@ namespace wgdone.webapi.Domain.Models
     public Guid Id { get; set; }
     public string Name { get; set; }
 
-    public Guid RoomId { get; set; }
-    public Room Room { get; set; }
+    public IList<Room> Rooms { get; set; }
   }
 }

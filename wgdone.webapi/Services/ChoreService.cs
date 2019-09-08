@@ -38,9 +38,9 @@ namespace wgdone.webapi.Services
       }
     }
 
-    public async Task<IEnumerable<Chore>> ListAsync(Guid roomId)
+    public async Task<IEnumerable<Chore>> ListAsync()
     {
-      return await _choreRepository.ListAsync(roomId);
+      return await _choreRepository.ListAsync();
     }
 
     public async Task<ChoreResponse> SaveAsync(Chore chore)

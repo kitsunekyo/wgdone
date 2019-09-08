@@ -79,29 +79,30 @@ namespace wgdone.webapi.Controllers
       var roomResource = _mapper.Map<Room, RoomResource>(result.Room);
       return Ok(roomResource);
     }
-
-    [HttpPost("{id}/Chores")]
-    public async Task<IActionResult> AddChoreAsync(Guid id, [FromBody] SaveChoreResource resource)
-    {
-      if (!ModelState.IsValid)
-        return BadRequest(ModelState.GetErrorMessages());
-
-      var chore = _mapper.Map<SaveChoreResource, Chore>(resource);
-      chore.RoomId = id;
-      var result = await _choreService.SaveAsync(chore);
-
-      if (!result.Success)
-        return BadRequest(result.Message);
-
-      return Ok(result.Chore);
-
-    }
-
-    [HttpGet("{id}/Chores")]
-    public async Task<IEnumerable<Chore>> GetAllChoresAsync(Guid id)
-    {
-      var chores = await _choreService.ListAsync(id);
-      return chores;
-    }
   }
 }
+
+//   [HttpPost("{id}/Chores")]
+//   public async Task<IActionResult> AddChoreAsync(Guid id, [FromBody] SaveChoreResource resource)
+//   {
+//     if (!ModelState.IsValid)
+//       return BadRequest(ModelState.GetErrorMessages());
+
+//     var chore = _mapper.Map<SaveChoreResource, Chore>(resource);
+//     chore.RoomId = id;
+//     var result = await _choreService.SaveAsync(chore);
+
+//     if (!result.Success)
+//       return BadRequest(result.Message);
+
+//     return Ok(result.Chore);
+
+//   }
+
+//   [HttpGet("{id}/Chores")]
+//   public async Task<IEnumerable<Chore>> GetAllChoresAsync(Guid id)
+//   {
+//     var chores = await _choreService.ListAsync(id);
+//     return chores;
+//   }
+// }

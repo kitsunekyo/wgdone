@@ -26,9 +26,12 @@ namespace wgdone.webapi.Controllers
     }
 
     [HttpGet]
-    public async Task<IEnumerable<Activity>> ListAllAsync()
+    public async Task<IEnumerable<ActivityResource>> GetAllAsync()
     {
-      return await _activityService.ListAsync();
+      var activities = await _activityService.ListAsync();
+      var resources = _mapper.Map<IEnumerable<Activity>, IEnumerable<ActivityResource>>(activities);
+
+      return resources;
     }
 
     [HttpPost]
