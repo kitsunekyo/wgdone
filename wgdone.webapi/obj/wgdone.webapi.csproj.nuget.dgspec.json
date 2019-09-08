@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Code\\github\\wgdone\\wgdone.webapi\\wgdone.webapi.csproj": {}
+    "E:\\Code\\wgdone\\wgdone.webapi\\wgdone.webapi.csproj": {}
   },
   "projects": {
-    "D:\\Code\\github\\wgdone\\wgdone.webapi\\wgdone.webapi.csproj": {
+    "E:\\Code\\wgdone\\wgdone.webapi\\wgdone.webapi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code\\github\\wgdone\\wgdone.webapi\\wgdone.webapi.csproj",
+        "projectUniqueName": "E:\\Code\\wgdone\\wgdone.webapi\\wgdone.webapi.csproj",
         "projectName": "wgdone.webapi",
-        "projectPath": "D:\\Code\\github\\wgdone\\wgdone.webapi\\wgdone.webapi.csproj",
-        "packagesPath": "C:\\Users\\alexander.spieslechn\\.nuget\\packages\\",
-        "outputPath": "D:\\Code\\github\\wgdone\\wgdone.webapi\\obj\\",
+        "projectPath": "E:\\Code\\wgdone\\wgdone.webapi\\wgdone.webapi.csproj",
+        "packagesPath": "C:\\Users\\aspieslechner\\.nuget\\packages\\",
+        "outputPath": "E:\\Code\\wgdone\\wgdone.webapi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\alexander.spieslechn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aspieslechner\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\bak.Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -41,6 +42,14 @@
       "frameworks": {
         "netcoreapp2.2": {
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
               "target": "Package",

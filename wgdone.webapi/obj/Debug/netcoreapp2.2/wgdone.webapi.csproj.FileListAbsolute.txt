@@ -12,3 +12,17 @@ d:\Code\github\wgdone\wgdone.webapi\obj\Debug\netcoreapp2.2\wgdone.webapi.Assemb
 d:\Code\github\wgdone\wgdone.webapi\obj\Debug\netcoreapp2.2\wgdone.webapi.RazorTargetAssemblyInfo.cache
 d:\Code\github\wgdone\wgdone.webapi\obj\Debug\netcoreapp2.2\wgdone.webapi.dll
 d:\Code\github\wgdone\wgdone.webapi\obj\Debug\netcoreapp2.2\wgdone.webapi.pdb
+E:\Code\wgdone\wgdone.webapi\bin\Debug\netcoreapp2.2\wgdone.webapi.deps.json
+E:\Code\wgdone\wgdone.webapi\bin\Debug\netcoreapp2.2\wgdone.webapi.runtimeconfig.json
+E:\Code\wgdone\wgdone.webapi\bin\Debug\netcoreapp2.2\wgdone.webapi.runtimeconfig.dev.json
+e:\Code\wgdone\wgdone.webapi\bin\Debug\netcoreapp2.2\wgdone.webapi.dll
+e:\Code\wgdone\wgdone.webapi\bin\Debug\netcoreapp2.2\wgdone.webapi.pdb
+e:\Code\wgdone\wgdone.webapi\obj\Debug\netcoreapp2.2\wgdone.webapi.csprojAssemblyReference.cache
+e:\Code\wgdone\wgdone.webapi\obj\Debug\netcoreapp2.2\wgdone.webapi.csproj.CoreCompileInputs.cache
+e:\Code\wgdone\wgdone.webapi\obj\Debug\netcoreapp2.2\wgdone.webapi.RazorAssemblyInfo.cache
+e:\Code\wgdone\wgdone.webapi\obj\Debug\netcoreapp2.2\wgdone.webapi.RazorAssemblyInfo.cs
+e:\Code\wgdone\wgdone.webapi\obj\Debug\netcoreapp2.2\wgdone.webapi.AssemblyInfoInputs.cache
+e:\Code\wgdone\wgdone.webapi\obj\Debug\netcoreapp2.2\wgdone.webapi.AssemblyInfo.cs
+e:\Code\wgdone\wgdone.webapi\obj\Debug\netcoreapp2.2\wgdone.webapi.RazorTargetAssemblyInfo.cache
+e:\Code\wgdone\wgdone.webapi\obj\Debug\netcoreapp2.2\wgdone.webapi.dll
+e:\Code\wgdone\wgdone.webapi\obj\Debug\netcoreapp2.2\wgdone.webapi.pdb

@@ -13,7 +13,13 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 
-using wgdone.webapi.Models;
+using wgdone.webapi.Persistence.Repositories;
+using wgdone.webapi.Persistence.Contexts;
+using wgdone.webapi.Domain.Repositories;
+using wgdone.webapi.Domain.Services;
+using wgdone.webapi.Services;
+using AutoMapper;
+using wgdone.webapi.Mapping;
 
 namespace wgdone.webapi
 {
@@ -29,12 +35,19 @@ namespace wgdone.webapi
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-      services.AddDbContext<WGContext>(opt => opt.UseInMemoryDatabase("RoomList"));
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+      services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("wgdone-in-memory-db"));
+
       services.AddSwaggerGen(c =>
         {
           c.SwaggerDoc("v1", new OpenApiInfo { Title = "WGDone Api", Version = "v1" });
         });
+
+      services.AddScoped<IRoomRepository, RoomRepository>();
+      services.AddScoped<IRoomService, RoomService>();
+
+      services.AddAutoMapper(typeof(ModelToResourceProfile));
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -7,6 +7,6 @@ namespace wgdone.webapi.Domain.Models
   {
     public Guid Id { get; set; }
     public string Name { get; set; }
-    public IList<Chore> Chores { get; set; }
+    public IList<Chore> Chores { get; set; } = new List<Chore>();
   }
 }
