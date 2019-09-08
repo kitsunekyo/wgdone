@@ -13,6 +13,7 @@ namespace wgdone.webapi.Mapping
     public ResourceToModelProfile()
     {
       CreateMap<SaveRoomResource, Room>();
+      CreateMap<SaveChoreResource, Chore>();
     }
   }
 }

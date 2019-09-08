@@ -19,22 +19,65 @@ namespace wgdone.webapi.Services
       _unitOfWork = unitOfWork;
     }
 
+    public async Task<RoomResponse> DeleteAsync(Guid id)
+    {
+      var existingRoom = await _roomRepository.FindByIdAsync(id);
+
+      if (existingRoom == null)
+        return new RoomResponse("Room not found");
+
+      try
+      {
+        _roomRepository.Remove(existingRoom);
+        await _unitOfWork.CompleteAsync();
+
+        return new RoomResponse(existingRoom);
+      }
+      catch (Exception e)
+      {
+        return new RoomResponse($"An error occurred when deleting the room: {e.Message}");
+      }
+    }
+
     public async Task<IEnumerable<Room>> ListAsync()
     {
       return await _roomRepository.ListAsync();
     }
 
-    public async Task<SaveRoomResponse> SaveAsync(Room room)
+    public async Task<RoomResponse> SaveAsync(Room room)
     {
       try
       {
         await _roomRepository.AddAsync(room);
         await _unitOfWork.CompleteAsync();
 
-        return new SaveRoomResponse(room);
-      } catch (Exception e)
+        return new RoomResponse(room);
+      }
+      catch (Exception e)
       {
-        return new SaveRoomResponse($"An error occurred when saving the category: {e.Message}");
+        return new RoomResponse($"An error occurred when saving the category: {e.Message}");
+      }
+    }
+
+    public async Task<RoomResponse> UpdateAsync(Guid id, Room room)
+    {
+      var existingRoom = await _roomRepository.FindByIdAsync(id);
+
+      if (existingRoom == null)
+        return new RoomResponse("Room not found");
+
+      existingRoom.Name = room.Name;
+
+      try
+      {
+        _roomRepository.Update(existingRoom);
+        await _unitOfWork.CompleteAsync();
+
+        return new RoomResponse(existingRoom);
+      }
+      catch (Exception e)
+      {
+        return new RoomResponse($"An error occurred when updating the room: {e.Message}");
       }
     }
   }

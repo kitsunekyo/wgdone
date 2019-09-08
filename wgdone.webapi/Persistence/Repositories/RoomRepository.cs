@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -18,9 +19,24 @@ namespace wgdone.webapi.Persistence.Repositories
       await _context.Rooms.AddAsync(room);
     }
 
+    public async Task<Room> FindByIdAsync(Guid id)
+    {
+      return await _context.Rooms.FindAsync(id);
+    }
+
     public async Task<IEnumerable<Room>> ListAsync()
     {
       return await _context.Rooms.ToListAsync();
+    }
+
+    public void Remove(Room room)
+    {
+      _context.Rooms.Remove(room);
+    }
+
+    public void Update(Room room)
+    {
+      _context.Rooms.Update(room);
     }
   }
 }
