@@ -13,6 +13,11 @@ namespace wgdone.webapi.Persistence.Repositories
     {
     }
 
+    public async Task AddAsync(Room room)
+    {
+      await _context.Rooms.AddAsync(room);
+    }
+
     public async Task<IEnumerable<Room>> ListAsync()
     {
       return await _context.Rooms.ToListAsync();

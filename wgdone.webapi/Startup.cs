@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -46,6 +46,7 @@ namespace wgdone.webapi
 
       services.AddScoped<IRoomRepository, RoomRepository>();
       services.AddScoped<IRoomService, RoomService>();
+      services.AddScoped<IUnitOfWork, UnitOfWork>();
 
       services.AddAutoMapper(typeof(ModelToResourceProfile));
     }

@@ -7,5 +7,6 @@ namespace wgdone.webapi.Domain.Repositories
   public interface IRoomRepository
   {
     Task<IEnumerable<Room>> ListAsync();
+    Task AddAsync(Room room);
   }
 }

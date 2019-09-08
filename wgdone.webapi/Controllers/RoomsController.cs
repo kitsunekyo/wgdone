@@ -9,6 +9,7 @@ using wgdone.webapi.Domain.Models;
 using wgdone.webapi.Domain.Services;
 using AutoMapper;
 using wgdone.webapi.Resources;
+using wgdone.webapi.Extensions;
 
 namespace wgdone.webapi.Controllers
 {
@@ -31,6 +32,22 @@ namespace wgdone.webapi.Controllers
       var resources = _mapper.Map<IEnumerable<Room>, IEnumerable<RoomResource>>(rooms);
 
       return resources;
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> PostAsync([FromBody] SaveRoomResource resource)
+    {
+      if (!ModelState.IsValid)
+        return BadRequest(ModelState.GetErrorMessages());
+
+      var room = _mapper.Map<SaveRoomResource, Room>(resource);
+      var result = await _roomService.SaveAsync(room);
+
+      if (!result.Success)
+        return BadRequest(result.Message);
+
+      var roomResource = _mapper.Map<Room, RoomResource>(result.Room);
+      return Ok(roomResource);
     }
   }
 }
