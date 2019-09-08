@@ -48,6 +48,8 @@ namespace wgdone.webapi
       services.AddScoped<IRoomService, RoomService>();
       services.AddScoped<IChoreRepository, ChoreRepository>();
       services.AddScoped<IChoreService, ChoreService>();
+      services.AddScoped<IActivityRepository, ActivityRepository>();
+      services.AddScoped<IActivityService, ActivityService>();
       services.AddScoped<IUnitOfWork, UnitOfWork>();
 
       services.AddAutoMapper(typeof(ModelToResourceProfile));

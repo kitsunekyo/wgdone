@@ -14,6 +14,7 @@ namespace wgdone.webapi.Mapping
     {
       CreateMap<SaveRoomResource, Room>();
       CreateMap<SaveChoreResource, Chore>();
+      CreateMap<SaveActivityResource, Activity>();
     }
   }
 }
