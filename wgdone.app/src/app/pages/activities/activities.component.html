@@ -1,8 +1,0 @@
-<ul *ngIf="activities.length > 0; else noActivities">
-  <li *ngFor="let activity of activities">
-    @{{ activity.user }}: {{ activity.task }} - {{ activity.date | date: 'short' }}
-  </li>
-</ul>
-<ng-template #noActivities>
-  <p>Noch keine Activities gespeichert...</p>
-</ng-template>

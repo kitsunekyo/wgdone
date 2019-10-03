@@ -1,0 +1,14 @@
+<div>
+  {{ task?.name }}
+</div>
+<div>
+  <button mat-flat-button color="primary" (click)="submit()">Submit</button>
+</div>
+
+<h3>Last activities for this task</h3>
+
+<ul>
+  <li *ngFor="let activity of activities">
+    {{ activity.timestamp }} {{ activity.user.displayName }}
+  </li>
+</ul>

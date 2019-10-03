@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Task } from 'src/app/models/Task';
-import { RoomService } from 'src/app/services/room.service';
-import { forkJoin } from 'rxjs';
-import { ActivityService } from 'src/app/services/activity.service';
+import { AuthService } from 'src/app/auth/auth.service';
+import { TaskService } from 'src/app/services/task.service';
+import { Task } from 'src/app/models/tasks.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-tasks',
@@ -11,41 +11,19 @@ import { ActivityService } from 'src/app/services/activity.service';
   styleUrls: ['./tasks.component.scss']
 })
 export class TasksComponent implements OnInit {
-  roomId: string;
-  roomDetails: any;
-  tasks: Task[];
+  tasks$: Observable<Task[]>;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private roomService: RoomService,
-    private activityService: ActivityService
+    public taskService: TaskService
   ) {}
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.roomId = params.id;
-      forkJoin(this.roomService.get(this.roomId), this.roomService.getTasks(this.roomId)).subscribe(
-        val => {
-          this.roomDetails = val[0];
-          this.tasks = val[1];
-        }
-      );
-    });
+    this.tasks$ = this.taskService.list();
   }
 
-  showRooms() {
-    this.router.navigateByUrl('/rooms');
-  }
-
-  addActivity(taskId: string) {
-    const activity = {
-      room: this.roomDetails.name,
-      task: this.tasks.find(obj => obj.id === taskId).name,
-      user: 'alex',
-      date: new Date().toDateString()
-    };
-    console.log('adding activity', activity);
-    this.activityService.add(activity);
+  submitTask(id: string) {
+    this.router.navigate([id], { relativeTo: this.route });
   }
 }

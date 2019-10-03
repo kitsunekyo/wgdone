@@ -1,0 +1,16 @@
+@mixin button-reset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+}

@@ -1,21 +1,19 @@
 <div class="app">
-  <mat-toolbar color="primary">
+  <mat-toolbar color="primary" class="header">
     <button mat-icon-button (click)="toggleSidenav()"><mat-icon>menu</mat-icon></button>
     <h1 class="example-app-name">WG Done</h1>
+    <app-user-profile></app-user-profile>
   </mat-toolbar>
 
   <mat-sidenav-container>
     <mat-sidenav #snav mode="over">
       <mat-nav-list>
-        <a [routerLink]="['/rooms']" mat-list-item>Zimmer</a>
         <a [routerLink]="['/activities']" mat-list-item>Activities</a>
       </mat-nav-list>
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <div class="container">
-        <router-outlet></router-outlet>
-      </div>
+      <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

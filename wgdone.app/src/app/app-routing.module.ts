@@ -1,27 +1,30 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { RoomsComponent } from './pages/rooms/rooms.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
-import { ActivitiesComponent } from './pages/activities/activities.component';
+import { AuthGuard } from './auth/auth.guard';
+import { LoginComponent } from './pages/login/login.component';
+import { TaskSubmitComponent } from './pages/task-submit/task-submit.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'rooms',
+    redirectTo: 'tasks',
     pathMatch: 'full'
   },
   {
-    path: 'rooms',
-    component: RoomsComponent
+    path: 'tasks',
+    component: TasksComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'rooms/:id',
-    component: TasksComponent
+    path: 'tasks/:id',
+    component: TaskSubmitComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'activities',
-    component: ActivitiesComponent
+    path: 'login',
+    component: LoginComponent
   }
 ];
 

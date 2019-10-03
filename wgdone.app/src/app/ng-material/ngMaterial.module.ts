@@ -4,10 +4,27 @@ import {
   MatButtonModule,
   MatIconModule,
   MatToolbarModule,
-  MatListModule
+  MatListModule,
+  MatSelectModule,
+  MatInputModule,
+  MatFormFieldModule,
+  MatCheckboxModule
 } from '@angular/material';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-const MODULES = [MatSidenavModule, MatButtonModule, MatIconModule, MatToolbarModule, MatListModule];
+const MODULES = [
+  FormsModule,
+  ReactiveFormsModule,
+  MatSelectModule,
+  MatInputModule,
+  MatFormFieldModule,
+  MatCheckboxModule,
+  MatSidenavModule,
+  MatButtonModule,
+  MatIconModule,
+  MatToolbarModule,
+  MatListModule
+];
 
 @NgModule({
   imports: [...MODULES],

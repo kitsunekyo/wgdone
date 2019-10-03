@@ -1,46 +1,35 @@
-.task-title {
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
+@import 'src/scss/util/variables';
+@import 'src/scss/util/mixins';
 
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 16px;
-}
-
-.card {
-  border-radius: 4px;
-  border: 1px solid #eee;
-  background-color: #fafafa;
-  height: 50px;
+.task {
   width: 100%;
-  padding: 16px;
+  height: 60px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-  transition: all 0.2s ease-in-out;
+  border-bottom: solid 1px #ddd;
+  position: relative;
+}
 
-  &:not(:last-child) {
-    margin-bottom: 1rem;
-  }
+.task-body {
+  padding: 0.25rem 0.5rem;
+}
 
-  &.active {
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-    border: none;
-    width: auto;
-    min-width: 30%;
-    position: relative;
-  }
+.task-actions {
+  position: absolute;
 
-  &.card-small {
-    height: 16px;
-    width: 168px;
+  right: 0;
+  top: 0;
+  height: 100%;
+
+  button {
+    @include button-reset;
+
+    color: #333;
+    height: 100%;
+    width: 50px;
+    background: #f0f0f0;
+    &:not(:last-child) {
+      margin-right: 1px;
+    }
   }
 }
