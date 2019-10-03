@@ -5,6 +5,7 @@ import { TasksComponent } from './pages/tasks/tasks.component';
 import { AuthGuard } from './auth/auth.guard';
 import { LoginComponent } from './pages/login/login.component';
 import { TaskSubmitComponent } from './pages/task-submit/task-submit.component';
+import { ActivitiesComponent } from './pages/activities/activities.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'activities',
+    component: ActivitiesComponent
   }
 ];
 

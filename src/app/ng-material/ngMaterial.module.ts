@@ -16,6 +16,7 @@ const MODULES = [
   FormsModule,
   ReactiveFormsModule,
   MatSelectModule,
+  MatListModule,
   MatInputModule,
   MatFormFieldModule,
   MatCheckboxModule,

@@ -1,14 +1,19 @@
-<div>
-  {{ task?.name }}
-</div>
-<div>
-  <button mat-flat-button color="primary" (click)="submit()">Submit</button>
-</div>
+<app-page-title>Task erledigen</app-page-title>
+<div class="container" *ngIf="task">
+  <h2>{{ task.name }}</h2>
+  <div>
+    <button mat-flat-button color="primary" (click)="submit()">
+      Erledigt <mat-icon>done</mat-icon>
+    </button>
+  </div>
 
-<h3>Last activities for this task</h3>
+  <h4>Letzte Einträge</h4>
 
-<ul>
-  <li *ngFor="let activity of activities">
-    {{ activity.timestamp }} {{ activity.user.displayName }}
-  </li>
-</ul>
+  <mat-list>
+    <mat-list-item *ngFor="let activity of activities">
+      <img mat-list-icon [src]="activity.user.photoURL" />
+      <h3 matLine>{{ activity.user.displayName }}</h3>
+      <p matLine>{{ activity.timestamp.toDate() | dateAgo }}</p>
+    </mat-list-item>
+  </mat-list>
+</div>

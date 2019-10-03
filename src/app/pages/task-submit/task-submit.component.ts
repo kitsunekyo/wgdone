@@ -30,20 +30,19 @@ export class TaskSubmitComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.taskService.get(params.get('id')).subscribe(task => {
         this.task = task;
+
+        this.activityService
+          .list()
+          .pipe(
+            map(activities => activities.filter(activity => activity.task.name === this.task.name))
+          )
+          .subscribe(activities => {
+            this.activities = activities;
+          });
       });
       this.authService.user$.subscribe(user => {
         this.user = user;
       });
-
-      this.activityService
-        .list()
-        .pipe(
-          map(activities => activities.filter(activity => activity.task.name === this.task.name))
-        )
-        .subscribe(activities => {
-          debugger;
-          this.activities = activities;
-        });
     });
   }
 

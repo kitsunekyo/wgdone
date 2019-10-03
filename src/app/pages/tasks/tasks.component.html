@@ -1,13 +1,2 @@
-<div class="task" *ngFor="let task of tasks$ | async">
-  <div class="task-body">
-    {{ task.name }}
-  </div>
-  <div class="task-actions">
-    <button class="task-action success" (click)="submitTask(task.id)">
-      <i class="fas fa-check"></i>
-    </button>
-    <button class="task-action warning">
-      <i class="fas fa-edit"></i>
-    </button>
-  </div>
-</div>
+<app-page-title>Tasks</app-page-title>
+<app-task-list [tasks]="tasks$ | async" (selected)="submitTask($event)"></app-task-list>

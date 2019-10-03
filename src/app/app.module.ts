@@ -14,9 +14,14 @@ import { environment } from '../environments/environment';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { LoginComponent } from './pages/login/login.component';
 import { TaskSubmitComponent } from './pages/task-submit/task-submit.component';
+import { ActivitiesComponent } from './pages/activities/activities.component';
+import { TaskListComponent } from './components/task-list/task-list.component';
+import { ActivityListComponent } from './components/activity-list/activity-list.component';
+import { PageTitleComponent } from './components/page-title/page-title.component';
+import { DateAgoPipe } from './pipes/date-ago.pipe';
 
 @NgModule({
-  declarations: [AppComponent, TasksComponent, UserProfileComponent, LoginComponent, TaskSubmitComponent],
+  declarations: [AppComponent, TasksComponent, UserProfileComponent, LoginComponent, TaskSubmitComponent, ActivitiesComponent, TaskListComponent, ActivityListComponent, PageTitleComponent, DateAgoPipe],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),

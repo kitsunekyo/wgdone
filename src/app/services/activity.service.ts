@@ -10,7 +10,9 @@ export class ActivityService {
   constructor(private db: AngularFirestore) {}
 
   list(): Observable<Activity[]> {
-    return this.db.collection<Activity>('activities').valueChanges({ idField: 'id' });
+    return this.db
+      .collection<Activity>('activities', ref => ref.orderBy('timestamp', 'desc'))
+      .valueChanges({ idField: 'id' });
   }
 
   get(activityId: string): Observable<any> {
