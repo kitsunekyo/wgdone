@@ -1,4 +1,7 @@
-<app-page-title>Task erledigen</app-page-title>
+<app-page-title>
+  <a [routerLink]="['/tasks']">Tasks</a>
+  <span>Task erledigen</span>
+</app-page-title>
 <div class="container" *ngIf="task">
   <h2>{{ task.name }}</h2>
   <div>

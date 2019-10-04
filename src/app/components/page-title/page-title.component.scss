@@ -4,3 +4,13 @@
   display: block;
   padding: 0.5rem 1rem;
 }
+
+:host ::ng-deep a {
+  &:not(:last-child) {
+    text-decoration: none;
+    &::after {
+      content: '>';
+      margin: 0 0.25rem;
+    }
+  }
+}
