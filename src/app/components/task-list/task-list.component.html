@@ -1,10 +1,8 @@
-<div class="task" *ngFor="let task of tasks" (click)="select(task.id)">
-  <div class="task-body">
-    {{ task.name }}
-  </div>
-  <div class="task-actions">
-    <button mat-icon-button>
-      <mat-icon>done</mat-icon>
-    </button>
-  </div>
-</div>
+<mat-list>
+  <mat-list-item class="task" *ngFor="let task of tasks" (click)="select(task.id)">
+    <mat-icon mat-list-icon>assignment</mat-icon>
+    <h3 mat-line>
+      {{ task.name }}
+    </h3>
+  </mat-list-item>
+</mat-list>
