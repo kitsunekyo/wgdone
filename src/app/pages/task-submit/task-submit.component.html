@@ -4,14 +4,11 @@
 </app-page-title>
 <div class="container" *ngIf="task" style="margin-bottom: 30px;">
   <h2>{{ task.name }}</h2>
-  <mat-form-field *ngIf="task.meta">
-    <mat-label>{{ task.meta.select_label }}</mat-label>
-    <mat-select multiple [(ngModel)]="metaSelections">
-      <mat-option *ngFor="let option of task.meta.select_options" [value]="option">{{
-        option
-      }}</mat-option>
-    </mat-select>
-  </mat-form-field>
+  <mat-selection-list [(ngModel)]="metaSelections">
+    <mat-list-option *ngFor="let option of task.meta.select_options" [value]="option">
+      {{ option }}
+    </mat-list-option>
+  </mat-selection-list>
   <div>
     <button
       mat-flat-button

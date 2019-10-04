@@ -20,7 +20,7 @@ export class TaskSubmitComponent implements OnInit, OnDestroy {
   task: Task;
   user: User;
   activities: Activity[];
-  metaSelections: string[];
+  metaSelections: any;
   posting$ = new BehaviorSubject<boolean>(false);
 
   constructor(
