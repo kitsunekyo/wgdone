@@ -2,21 +2,30 @@
   <a [routerLink]="['/tasks']">Tasks</a>
   <span>Task erledigen</span>
 </app-page-title>
-<div class="container" *ngIf="task">
+<div class="container" *ngIf="task" style="margin-bottom: 30px;">
   <h2>{{ task.name }}</h2>
   <div>
-    <button mat-flat-button color="primary" (click)="submit()" [disabled]="posting$ | async">
-      Erledigt <mat-icon>done</mat-icon>
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="submit()"
+      [disabled]="posting$ | async"
+      class="submit-button"
+    >
+      Jetzt Erledigt
     </button>
   </div>
+</div>
 
-  <h4>Letzte Einträge</h4>
-
+<ng-container *ngIf="activities?.length > 0">
+  <div class="container">
+    <h4 class="title">Letzte Einträge</h4>
+  </div>
   <mat-list>
     <mat-list-item *ngFor="let activity of activities">
-      <img mat-list-icon [src]="activity.user.photoURL" />
+      <img matListAvatar [src]="activity.user.photoURL" />
       <h3 matLine>{{ activity.user.displayName }}</h3>
       <p matLine>{{ activity.timestamp.toDate() | dateAgo }}</p>
     </mat-list-item>
   </mat-list>
-</div>
+</ng-container>
