@@ -2,7 +2,9 @@
   <mat-list-item *ngFor="let activity of activities">
     <img matListAvatar [src]="activity.user.photoURL" />
     <h3 matLine>{{ activity.task.name }}</h3>
-    <p matLine>{{ activity.user.displayName }}</p>
+    <p class="meta" matLine *ngIf="activity.meta">
+      <span class="meta-item" *ngFor="let selection of activity.meta">{{ selection }}</span>
+    </p>
     <p matLine>{{ activity.timestamp.toDate() | dateAgo }}</p>
     <button mat-icon-button (click)="onDelete(activity.id)" *ngIf="canDelete(activity)">
       <mat-icon>delete</mat-icon>

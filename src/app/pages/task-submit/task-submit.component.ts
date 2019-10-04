@@ -20,6 +20,7 @@ export class TaskSubmitComponent implements OnInit, OnDestroy {
   task: Task;
   user: User;
   activities: Activity[];
+  metaSelections: string[];
   posting$ = new BehaviorSubject<boolean>(false);
 
   constructor(
@@ -59,7 +60,7 @@ export class TaskSubmitComponent implements OnInit, OnDestroy {
     this.posting$.next(true);
     const activity: Activity = {
       task: this.task,
-      rooms: [],
+      meta: this.metaSelections,
       timestamp: new Date(),
       user: this.user
     };

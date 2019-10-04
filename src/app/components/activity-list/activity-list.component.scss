@@ -1,0 +1,8 @@
+.meta {
+  color: #aaa;
+}
+.meta-item {
+  &:not(:last-child) {
+    margin-right: 0.25rem;
+  }
+}
