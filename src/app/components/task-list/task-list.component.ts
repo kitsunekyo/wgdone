@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+
 import { Task } from 'src/app/models/tasks.model';
 
 @Component({

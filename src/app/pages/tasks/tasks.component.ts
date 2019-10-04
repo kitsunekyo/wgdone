@@ -1,16 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { trigger, transition, style, animate } from '@angular/animations';
+
 import { TaskService } from 'src/app/services/task.service';
 import { Task } from 'src/app/models/tasks.model';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
-  styleUrls: ['./tasks.component.scss']
+  styleUrls: ['./tasks.component.scss'],
+  animations: [
+    trigger('inOutAnimation', [
+      transition(':enter', [style({ opacity: 0 }), animate('.1s ease-out', style({ opacity: 1 }))]),
+      transition(':leave', [style({ opacity: 1 }), animate('.1s ease-in', style({ opacity: 0 }))])
+    ])
+  ]
 })
 export class TasksComponent implements OnInit {
-  tasks$: Observable<Task[]>;
+  tasks: Task[];
+  loading = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -19,7 +27,10 @@ export class TasksComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.tasks$ = this.taskService.list();
+    this.taskService.list().subscribe(tasks => {
+      this.tasks = tasks;
+      this.loading = false;
+    });
   }
 
   submitTask(id: string) {

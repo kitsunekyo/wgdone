@@ -1,5 +1,9 @@
 <app-page-title>Activities</app-page-title>
 <app-activity-list
-  [activities]="activities$ | async"
+  [activities]="activities"
   (delete)="onDelete($event)"
+  *ngIf="!loading"
+  [@inOutAnimation]
 ></app-activity-list>
+
+<app-loading-overlay *ngIf="loading" [@inOutAnimation]> </app-loading-overlay>

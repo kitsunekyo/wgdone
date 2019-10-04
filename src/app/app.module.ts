@@ -19,9 +19,22 @@ import { TaskListComponent } from './components/task-list/task-list.component';
 import { ActivityListComponent } from './components/activity-list/activity-list.component';
 import { PageTitleComponent } from './components/page-title/page-title.component';
 import { DateAgoPipe } from './pipes/date-ago.pipe';
+import { LoadingOverlayComponent } from './components/loading-overlay/loading-overlay.component';
 
 @NgModule({
-  declarations: [AppComponent, TasksComponent, UserProfileComponent, LoginComponent, TaskSubmitComponent, ActivitiesComponent, TaskListComponent, ActivityListComponent, PageTitleComponent, DateAgoPipe],
+  declarations: [
+    AppComponent,
+    TasksComponent,
+    UserProfileComponent,
+    LoginComponent,
+    TaskSubmitComponent,
+    ActivitiesComponent,
+    TaskListComponent,
+    ActivityListComponent,
+    PageTitleComponent,
+    DateAgoPipe,
+    LoadingOverlayComponent
+  ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),

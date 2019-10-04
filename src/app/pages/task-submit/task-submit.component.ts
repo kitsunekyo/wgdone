@@ -1,13 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { map } from 'rxjs/operators';
+import { BehaviorSubject, Subject } from 'rxjs';
+
 import { ActivityService } from 'src/app/services/activity.service';
 import { TaskService } from 'src/app/services/task.service';
 import { Task } from 'src/app/models/tasks.model';
 import { Activity } from 'src/app/models/activity.model';
 import { AuthService } from 'src/app/auth/auth.service';
 import { User } from 'src/app/models/user.model';
-import { map } from 'rxjs/operators';
-import { BehaviorSubject, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-task-submit',

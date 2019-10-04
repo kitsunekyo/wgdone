@@ -1,2 +1,10 @@
 <app-page-title>Tasks</app-page-title>
-<app-task-list [tasks]="tasks$ | async" (selected)="submitTask($event)"></app-task-list>
+
+<app-task-list
+  [tasks]="tasks"
+  (selected)="submitTask($event)"
+  *ngIf="!loading"
+  [@inOutAnimation]
+></app-task-list>
+
+<app-loading-overlay *ngIf="loading" [@inOutAnimation]> </app-loading-overlay>
