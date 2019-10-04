@@ -11,3 +11,6 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
+
+/* fix material button focus issue on mobile */
+.mat-button:focus .mat-button-focus-overlay { background-color: transparent; }
