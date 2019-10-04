@@ -4,7 +4,7 @@
 </app-page-title>
 <div class="container" *ngIf="task" style="margin-bottom: 30px;">
   <h2>{{ task.name }}</h2>
-  <mat-selection-list [(ngModel)]="metaSelections">
+  <mat-selection-list [(ngModel)]="metaSelections" *ngIf="task.meta" class="meta-select">
     <mat-list-option *ngFor="let option of task.meta.select_options" [value]="option">
       {{ option }}
     </mat-list-option>
