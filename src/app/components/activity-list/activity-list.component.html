@@ -9,5 +9,9 @@
     <button mat-icon-button (click)="onDelete(activity.id)" *ngIf="canDelete(activity)">
       <mat-icon>delete</mat-icon>
     </button>
+    <button mat-icon-button>
+      <mat-icon *ngIf="hasLiked(activity)">favorite</mat-icon>
+      <mat-icon *ngIf="!hasLiked(activity)">favorite_border</mat-icon>
+    </button>
   </mat-list-item>
 </mat-list>

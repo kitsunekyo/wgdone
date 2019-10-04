@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Activity } from '../models/activity.model';
+import { leftJoin } from './collectionJoin';
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +10,11 @@ import { Activity } from '../models/activity.model';
 export class ActivityService {
   constructor(private db: AngularFirestore) {}
 
-  list(): Observable<Activity[]> {
+  list(): Observable<any> {
     return this.db
       .collection<Activity>('activities', ref => ref.orderBy('timestamp', 'desc'))
-      .valueChanges({ idField: 'id' });
+      .valueChanges({ idField: 'activityId' })
+      .pipe(leftJoin(this.db, 'activityId', 'likes'));
   }
 
   get(activityId: string): Observable<any> {

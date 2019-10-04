@@ -33,4 +33,15 @@ export class ActivityListComponent implements OnInit {
     }
     return false;
   }
+
+  hasLiked(activity) {
+    if (
+      this.user &&
+      activity.likes &&
+      activity.likes.filter(obj => obj.userId === this.user.uid).length > 0
+    ) {
+      return true;
+    }
+    return false;
+  }
 }
