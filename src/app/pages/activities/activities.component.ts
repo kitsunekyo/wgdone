@@ -16,4 +16,8 @@ export class ActivitiesComponent implements OnInit {
   ngOnInit() {
     this.activities$ = this.activityService.list();
   }
+
+  onDelete(activityId: string) {
+    this.activityService.delete(activityId);
+  }
 }

@@ -1,2 +1,5 @@
 <app-page-title>Activities</app-page-title>
-<app-activity-list [activities]="activities$ | async"></app-activity-list>
+<app-activity-list
+  [activities]="activities$ | async"
+  (delete)="onDelete($event)"
+></app-activity-list>
