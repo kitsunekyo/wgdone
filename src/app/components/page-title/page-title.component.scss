@@ -1,8 +1,9 @@
 :host {
-  border-bottom: solid 1px #ddd;
-  font-size: 1rem;
   display: block;
   padding: 0.5rem 1rem;
+
+  background-color: #f0f0f0;
+  font-size: 1rem;
 }
 
 :host ::ng-deep a {
