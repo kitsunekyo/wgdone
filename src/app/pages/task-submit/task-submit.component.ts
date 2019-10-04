@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ActivityService } from 'src/app/services/activity.service';
 import { TaskService } from 'src/app/services/task.service';
@@ -7,16 +7,20 @@ import { Activity } from 'src/app/models/activity.model';
 import { AuthService } from 'src/app/auth/auth.service';
 import { User } from 'src/app/models/user.model';
 import { map } from 'rxjs/operators';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-task-submit',
   templateUrl: './task-submit.component.html',
   styleUrls: ['./task-submit.component.scss']
 })
-export class TaskSubmitComponent implements OnInit {
+export class TaskSubmitComponent implements OnInit, OnDestroy {
+  private destroyed$ = new Subject();
+
   task: Task;
   user: User;
   activities: Activity[];
+  posting$ = new BehaviorSubject<boolean>(false);
 
   constructor(
     private route: ActivatedRoute,
@@ -46,15 +50,27 @@ export class TaskSubmitComponent implements OnInit {
     });
   }
 
+  ngOnDestroy() {
+    this.destroyed$.next();
+    this.destroyed$.complete();
+  }
+
   submit() {
+    this.posting$.next(true);
     const activity: Activity = {
       task: this.task,
       rooms: [],
       timestamp: new Date(),
       user: this.user
     };
-    this.activityService.add(activity).then(() => {
-      console.log('activity added', { activity });
-    });
+    this.activityService.add(activity).then(
+      () => {
+        this.posting$.next(false);
+        this.router.navigate(['/activities']);
+      },
+      e => {
+        this.posting$.next(false);
+      }
+    );
   }
 }
