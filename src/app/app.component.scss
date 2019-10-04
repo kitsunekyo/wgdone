@@ -8,9 +8,6 @@
   right: 0;
 }
 
-.header {
-}
-
 .mat-toolbar > .mat-icon-button:first-child {
   margin-right: 1rem;
 }
@@ -21,4 +18,18 @@
 
 .mat-sidenav {
   width: 250px;
+}
+
+:host ::ng-deep .mat-drawer-inner-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-footer {
+  padding: 1rem;
+  margin-top: auto;
+}
+
+.logout-button {
+  width: 100%;
 }
