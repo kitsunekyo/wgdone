@@ -4,6 +4,8 @@ import { trigger, transition, style, animate } from '@angular/animations';
 
 import { TaskService } from 'src/app/services/task.service';
 import { Task } from 'src/app/models/tasks.model';
+import { ActivityService } from 'src/app/services/activity.service';
+import { combineLatest } from 'rxjs';
 
 @Component({
   selector: 'app-tasks',
@@ -23,12 +25,18 @@ export class TasksComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    public taskService: TaskService
+    private taskService: TaskService,
+    private activityService: ActivityService
   ) {}
 
   ngOnInit() {
-    this.taskService.list().subscribe(tasks => {
-      this.tasks = tasks;
+    combineLatest(this.taskService.list(), this.activityService.list()).subscribe(res => {
+      this.tasks = res[0].map(task => {
+        return {
+          ...task,
+          latestActivity: res[1].find(activity => activity.task.name === task.name)
+        };
+      });
       this.loading = false;
     });
   }
