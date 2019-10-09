@@ -4,5 +4,9 @@
     <h3 mat-line>
       {{ task.name }}
     </h3>
+    <p mat-line *ngIf="task.latestActivity">
+      Zuletzt: {{ task.latestActivity.user.displayName }}:
+      {{ task.latestActivity.timestamp.toDate() | dateAgo }}
+    </p>
   </mat-list-item>
 </mat-list>
