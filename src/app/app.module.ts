@@ -21,6 +21,7 @@ import { PageTitleComponent } from './components/page-title/page-title.component
 import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { LoadingOverlayComponent } from './components/loading-overlay/loading-overlay.component';
 import { MyActivitiesComponent } from './pages/my-activities/my-activities.component';
+import { ConfirmationDialogComponent } from './dialogs/confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MyActivitiesComponent } from './pages/my-activities/my-activities.compo
     PageTitleComponent,
     DateAgoPipe,
     LoadingOverlayComponent,
-    MyActivitiesComponent
+    MyActivitiesComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +49,7 @@ import { MyActivitiesComponent } from './pages/my-activities/my-activities.compo
     NgMaterialModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
+  entryComponents: [ConfirmationDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

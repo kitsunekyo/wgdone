@@ -11,7 +11,8 @@ import {
   MatCheckboxModule,
   MatChipsModule,
   MatProgressSpinnerModule,
-  MatBadgeModule
+  MatBadgeModule,
+  MatDialogModule
 } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
@@ -29,6 +30,7 @@ const MODULES = [
   MatButtonModule,
   MatIconModule,
   MatBadgeModule,
+  MatDialogModule,
   MatToolbarModule,
   MatListModule
 ];

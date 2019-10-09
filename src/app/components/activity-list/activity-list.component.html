@@ -6,7 +6,7 @@
       <span class="meta-item" *ngFor="let selection of activity.meta">{{ selection }}</span>
     </p>
     <p matLine>{{ activity.timestamp.toDate() | dateAgo }}</p>
-    <button mat-icon-button (click)="onDelete(activity.id)" *ngIf="canDelete(activity)">
+    <button mat-icon-button (click)="onDelete(activity)" *ngIf="canDelete(activity)">
       <mat-icon>delete</mat-icon>
     </button>
   </mat-list-item>
