@@ -1,4 +1,6 @@
-<app-page-title>My Activities</app-page-title>
+<app-page-title>
+  Meine Activities <span *ngIf="activities">({{ activities.length }})</span>
+</app-page-title>
 <app-activity-list
   [activities]="activities"
   (delete)="onDelete($event)"
