@@ -10,7 +10,9 @@ export class TaskService {
   constructor(private db: AngularFirestore) {}
 
   list(): Observable<Task[]> {
-    return this.db.collection<Task>('tasks').valueChanges({ idField: 'id' });
+    return this.db
+      .collection<Task>('tasks', ref => ref.orderBy('name', 'asc'))
+      .valueChanges({ idField: 'id' });
   }
 
   get(taskId: string): Observable<Task> {

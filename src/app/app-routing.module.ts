@@ -6,6 +6,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { LoginComponent } from './pages/login/login.component';
 import { TaskSubmitComponent } from './pages/task-submit/task-submit.component';
 import { ActivitiesComponent } from './pages/activities/activities.component';
+import { MyActivitiesComponent } from './pages/my-activities/my-activities.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,20 @@ const routes: Routes = [
   {
     path: 'activities',
     component: ActivitiesComponent
+  },
+  {
+    path: 'user',
+    children: [
+      {
+        path: '',
+        redirectTo: 'activities',
+        pathMatch: 'full'
+      },
+      {
+        path: 'activities',
+        component: MyActivitiesComponent
+      }
+    ]
   }
 ];
 

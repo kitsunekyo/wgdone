@@ -15,6 +15,12 @@ export class ActivityService {
       .valueChanges({ idField: 'id' });
   }
 
+  listForUser(userId: string): Observable<Activity[]> {
+    return this.db
+      .collection<Activity>('activities', ref => ref.where('user.uid', '==', userId))
+      .valueChanges({ idField: 'id' });
+  }
+
   get(activityId: string): Observable<any> {
     return this.db.doc('activities/' + activityId).get();
   }

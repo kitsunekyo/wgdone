@@ -20,6 +20,7 @@ import { ActivityListComponent } from './components/activity-list/activity-list.
 import { PageTitleComponent } from './components/page-title/page-title.component';
 import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { LoadingOverlayComponent } from './components/loading-overlay/loading-overlay.component';
+import { MyActivitiesComponent } from './pages/my-activities/my-activities.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { LoadingOverlayComponent } from './components/loading-overlay/loading-ov
     ActivityListComponent,
     PageTitleComponent,
     DateAgoPipe,
-    LoadingOverlayComponent
+    LoadingOverlayComponent,
+    MyActivitiesComponent
   ],
   imports: [
     BrowserModule,

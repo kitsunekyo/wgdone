@@ -4,12 +4,9 @@
 
 <ng-template #authenticated>
   <ng-container *ngIf="auth.user$ | async as user">
-    <div class="user-image">
+    <a class="user-image" [routerLink]="['user/activities']">
       <img [src]="user.photoURL" />
-      <button mat-icon-button (click)="logout()" class="user-button" color="primary">
-        <mat-icon>exit_to_app</mat-icon>
-      </button>
-    </div>
+    </a>
   </ng-container>
 </ng-template>
 

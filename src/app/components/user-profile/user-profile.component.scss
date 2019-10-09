@@ -33,12 +33,3 @@
   position: absolute;
   display: none;
 }
-
-.user-image:hover {
-  > img {
-    opacity: 0.3;
-  }
-  .user-button {
-    display: block;
-  }
-}
