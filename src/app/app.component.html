@@ -8,13 +8,17 @@
   <mat-sidenav-container>
     <mat-sidenav #snav mode="over">
       <mat-nav-list>
+        <a [routerLink]="['/tasks']" mat-list-item>
+          <mat-icon mat-list-icon>assignment</mat-icon>
+          <p matLine>Tasks</p>
+        </a>
         <a [routerLink]="['/activities']" mat-list-item>
           <mat-icon mat-list-icon>done_all</mat-icon>
           <p matLine>Activities</p>
         </a>
-        <a [routerLink]="['/tasks']" mat-list-item>
-          <mat-icon mat-list-icon>assignment</mat-icon>
-          <p matLine>Tasks</p>
+        <a [routerLink]="['/user/activities']" mat-list-item>
+          <mat-icon mat-list-icon>assignment_ind</mat-icon>
+          <p matLine>My Activities</p>
         </a>
       </mat-nav-list>
       <div class="drawer-footer">
