@@ -46,7 +46,7 @@ export class MyActivitiesComponent implements OnInit {
         collection.push({ name: activity.task.name, value: 1 });
       }
     }
-    collection.sort((a, b) => (a.value > b.value ? 1 : b.value > a.value ? -1 : 0));
+    collection.sort((a, b) => (a.value > b.value ? -1 : b.value > a.value ? 1 : 0));
     return collection;
   }
 
