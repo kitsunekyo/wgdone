@@ -1,4 +1,13 @@
 <app-page-title>Activities</app-page-title>
+
+<div class="chart-wrapper" *ngIf="!loading">
+  <ngx-charts-advanced-pie-chart
+    [results]="chartData"
+    legend="true"
+    legendPosition="below"
+  ></ngx-charts-advanced-pie-chart>
+</div>
+
 <app-activity-list
   [activities]="activities"
   (delete)="onDelete($event)"

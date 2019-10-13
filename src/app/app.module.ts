@@ -22,6 +22,7 @@ import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { LoadingOverlayComponent } from './components/loading-overlay/loading-overlay.component';
 import { MyActivitiesComponent } from './pages/my-activities/my-activities.component';
 import { ConfirmationDialogComponent } from './dialogs/confirmation-dialog/confirmation-dialog.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { ConfirmationDialogComponent } from './dialogs/confirmation-dialog/confi
     AppRoutingModule,
     BrowserAnimationsModule,
     NgMaterialModule,
+    NgxChartsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   entryComponents: [ConfirmationDialogComponent],

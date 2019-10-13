@@ -4,6 +4,11 @@ import { trigger, transition, style, animate } from '@angular/animations';
 import { ActivityService } from 'src/app/services/activity.service';
 import { Activity } from 'src/app/models/activity.model';
 
+interface ChartData {
+  name: string;
+  value: number;
+}
+
 @Component({
   selector: 'app-activities',
   templateUrl: './activities.component.html',
@@ -19,13 +24,27 @@ export class ActivitiesComponent implements OnInit {
   activities: Activity[];
   loading = true;
 
+  chartData: ChartData[] = [];
+
   constructor(private activityService: ActivityService) {}
 
   ngOnInit() {
     this.activityService.list().subscribe(activities => {
       this.activities = activities;
+      this.countActivitiesPerPerson();
       this.loading = false;
     });
+  }
+
+  countActivitiesPerPerson() {
+    for (const activity of this.activities) {
+      const data = this.chartData.find(d => d.name === activity.user.displayName);
+      if (data) {
+        data.value++;
+      } else {
+        this.chartData.push({ name: activity.user.displayName, value: 1 });
+      }
+    }
   }
 
   onDelete(activityId: string) {
