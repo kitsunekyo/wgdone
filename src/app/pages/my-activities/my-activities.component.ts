@@ -19,6 +19,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
 export class MyActivitiesComponent implements OnInit {
   public activities: Activity[];
   public loading = true;
+  public chartData: { name: string; value: number }[] = [];
 
   constructor(private auth: AuthService, private activityService: ActivityService) {}
 
@@ -30,8 +31,22 @@ export class MyActivitiesComponent implements OnInit {
       )
       .subscribe(activities => {
         this.activities = activities;
+        this.chartData = this.countActivitiesPerPerson();
         this.loading = false;
       });
+  }
+
+  private countActivitiesPerPerson(): { name: string; value: number }[] {
+    const collection = [];
+    for (const activity of this.activities) {
+      const data = collection.find(d => d.name === activity.task.name);
+      if (data) {
+        data.value++;
+      } else {
+        collection.push({ name: activity.task.name, value: 1 });
+      }
+    }
+    return collection;
   }
 
   onDelete(activityId: string) {

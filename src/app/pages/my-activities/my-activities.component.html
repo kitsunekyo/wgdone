@@ -1,6 +1,11 @@
 <app-page-title>
   Meine Activities <span *ngIf="activities">({{ activities.length }})</span>
 </app-page-title>
+
+<div class="chart-wrapper" *ngIf="!loading" [@inOutAnimation]>
+  <ngx-charts-advanced-pie-chart [results]="chartData"></ngx-charts-advanced-pie-chart>
+</div>
+
 <app-activity-list
   [activities]="activities"
   (delete)="onDelete($event)"
