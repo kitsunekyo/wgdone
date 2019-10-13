@@ -33,13 +33,14 @@ export class ActivitiesComponent implements OnInit {
   private countActivitiesPerPerson(): { name: string; value: number }[] {
     const collection = [];
     for (const activity of this.activities) {
-      const data = collection.find(d => d.name === activity.task.name);
+      const data = collection.find(d => d.name === activity.user.displayName);
       if (data) {
         data.value++;
       } else {
-        collection.push({ name: activity.task.name, value: 1 });
+        collection.push({ name: activity.user.displayName, value: 1 });
       }
     }
+    collection.sort((a, b) => (a.value > b.value ? 1 : b.value > a.value ? -1 : 0));
     return collection;
   }
 
