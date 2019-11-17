@@ -4,8 +4,15 @@
 </app-page-title>
 <div class="container" *ngIf="task" style="margin-bottom: 30px;">
   <h2>{{ task.name }}</h2>
-  <mat-selection-list [(ngModel)]="metaSelections" *ngIf="task.meta" class="meta-select">
-    <mat-list-option *ngFor="let option of task.meta.select_options" [value]="option">
+  <mat-selection-list
+    [(ngModel)]="metaSelections"
+    *ngIf="task.meta"
+    class="meta-select"
+  >
+    <mat-list-option
+      *ngFor="let option of task.meta.select_options"
+      [value]="option"
+    >
       {{ option }}
     </mat-list-option>
   </mat-selection-list>
@@ -26,11 +33,8 @@
   <div class="container">
     <h4 class="title">Letzte Einträge</h4>
   </div>
-  <mat-list>
-    <mat-list-item *ngFor="let activity of activities">
-      <img matListAvatar [src]="activity.user.photoURL" />
-      <h3 matLine>{{ activity.user.displayName }}</h3>
-      <p matLine>{{ activity.timestamp.toDate() | dateAgo }}</p>
-    </mat-list-item>
-  </mat-list>
+  <app-activity-list
+    [activities]="activities"
+    (delete)="onDeleteActivity($event)"
+  ></app-activity-list>
 </ng-container>

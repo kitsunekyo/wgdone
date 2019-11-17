@@ -40,7 +40,11 @@ export class TaskSubmitComponent implements OnInit, OnDestroy {
         this.activityService
           .list()
           .pipe(
-            map(activities => activities.filter(activity => activity.task.name === this.task.name))
+            map(activities =>
+              activities.filter(
+                activity => activity.task.name === this.task.name
+              )
+            )
           )
           .subscribe(activities => {
             this.activities = activities;
@@ -74,5 +78,9 @@ export class TaskSubmitComponent implements OnInit, OnDestroy {
         this.posting$.next(false);
       }
     );
+  }
+
+  onDeleteActivity(activityId: string) {
+    this.activityService.delete(activityId);
   }
 }
