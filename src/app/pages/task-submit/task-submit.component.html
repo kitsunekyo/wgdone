@@ -2,29 +2,31 @@
   <a [routerLink]="['/tasks']">Tasks</a>
   <span>Task erledigen</span>
 </app-page-title>
-<div class="container" *ngIf="task" style="margin-bottom: 30px;">
+<div class="container" *ngIf="task" style="margin-bottom: 30px">
   <h2>{{ task.name }}</h2>
-  <mat-selection-list
-    [(ngModel)]="metaSelections"
-    *ngIf="task.meta.type === 'select'"
-    class="meta-select"
-  >
-    <mat-list-option
-      *ngFor="let option of task.meta.select_options"
-      [value]="option"
+  <div *ngIf="task.meta">
+    <mat-selection-list
+      [(ngModel)]="metaSelections"
+      *ngIf="task.meta.type === 'select'"
+      class="meta-select"
     >
-      {{ option }}
-    </mat-list-option>
-  </mat-selection-list>
+      <mat-list-option
+        *ngFor="let option of task.meta.select_options"
+        [value]="option"
+      >
+        {{ option }}
+      </mat-list-option>
+    </mat-selection-list>
 
-  <mat-form-field *ngIf="task.meta.type === 'input'">
-    <input
-      matInput
-      placeholder="Info"
-      type="text"
-      [(ngModel)]="metaSelections[0]"
-    />
-  </mat-form-field>
+    <mat-form-field *ngIf="task.meta.type === 'input'">
+      <input
+        matInput
+        placeholder="Info"
+        type="text"
+        [(ngModel)]="metaSelections[0]"
+      />
+    </mat-form-field>
+  </div>
 
   <div>
     <button
