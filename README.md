@@ -19,7 +19,8 @@ A chore tracking app to review which roommate does the most chores (me obviously
 Its running a frontend only PWA, and just requires a firebase storage. All CRUD operations are done directly against the firebase api, via the angularFire sdk.
 
 You only need to setup a collection named `tasks` with a set of tasks.
-Eg:
+
+example:
 
 ```json
 {
@@ -29,7 +30,17 @@ Eg:
     },
     {
       "name": "Staubsaugen",
-      "meta": {}
+      "meta": {
+        "type": "select",
+        "select_label": "Raum",
+        "select_options": ["Wohnzimmer", "Schlafzimmer", "Esszimmer"]
+      }
+    },
+    {
+      "name": "Wäsche Waschen",
+      "meta": {
+        "type": "input"
+      }
     }
   ]
 }
